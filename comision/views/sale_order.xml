@@ -2,9 +2,10 @@
 <odoo>
     <!--    Sale order form view inherited-->
     <record id="view_order_comision_form" model="ir.ui.view">
-        <field name="name">sale.order.view.form.inherit.sale.order.comision</field>
+        <field name="name">sale.order.view.form.inherit.comision</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority" eval="98"/>
         <field name="arch" type="xml">
             <!--
             <xpath expr="/form//field[@name='partner_shipping_id']" position="after">
@@ -14,8 +15,9 @@
             <xpath expr="/form//field[@name='payment_term_id']" position="after">
                 <field name="x_comisionista" force_save="1" options="{'no_create_edit': True, 'no_open': True}" readonly="invoice_status != 'no'"/>
                 <field name="x_comision" force_save="1" readonly="1" invisible="not x_comisionista"/>
-                <field name="invoice_status"/>
                 <!--
+                <field name="invoice_status"/>
+                
                 <field name="x_prueba"/>
                 -->
             </xpath>
